@@ -1,0 +1,23 @@
+SAP Note 1001 - Error: TSV_TNEW_PAGE_ALLOC_FAILED
+Category: Memory Management (ST22 Dump)
+Root Cause: The ABAP program tried to allocate more extended or heap memory than allowed by system parameters. Often caused by unoptimized SELECT * queries on large tables like BSEG or MSEG.
+Resolution: 
+1. Check memory parameters ztta/roll_extension and abap/heap_area_total in RZ11.
+2. Monitor active work processes in SM50/SM66 to identify the long-running user session.
+3. Recommend ABAP team to add proper WHERE clauses or batch processing.
+
+SAP Note 1002 - Error: DBIF_RSQL_SQL_ERROR / ORA-01653
+Category: Database Tablespace Full (SM21 / DB02)
+Root Cause: The database tablespace (e.g., PSAPSR3) has run out of free space and autoextend has reached its maximum limit.
+Resolution:
+1. Check tablespace utilization in transaction DB02 or HANA Studio.
+2. Add a new datafile using BRTOOLS (for Oracle) or resize volume/check disk space on HANA data volume.
+3. Re-run the failed background job in SM37.
+
+SAP Note 1003 - Error: RFC_COMMUNICATION_FAILURE / CPIC-RC 001
+Category: Gateway & RFC Connection (SM59)
+Root Cause: Target host is unreachable, gateway service (sapgw00) is down, or firewall is blocking port 3300.
+Resolution:
+1. Perform a connection test in SM59 and check target IP/hostname resolution via NIPING.
+2. Verify gateway status in SMGW and check dev_rd trace logs in ST11.
+3. Restart the target RFC destination or coordinate with the network team for port 3300 access.
