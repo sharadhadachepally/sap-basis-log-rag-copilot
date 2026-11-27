@@ -19,4 +19,5 @@ SAP Basis consultants spend significant time manually analyzing runtime dumps an
 2. Run the app: `streamlit run app.py`
 3. Enter your free Gemini API Key in the sidebar and paste an SAP error log.
 ## 📸 Live Demo Output
-![SAP Basis RAG Copilot Demo](demo.jpg)
+![SAP Basis RAG Copilot Demo](Demo.png)
+
